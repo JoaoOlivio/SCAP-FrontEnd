@@ -1,0 +1,180 @@
+{
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Fulano de Tal",
+      "email": "fulano@email.com",
+      "telefone": "28999998888",
+      "mensalidade": 59.9
+    },
+    {
+      "id": 2,
+      "nome": "Beltrano de Tal",
+      "email": "beltrano@email.com",
+      "telefone": "28999997777",
+      "mensalidade": 69.9
+    },
+    {
+      "id": 3,
+      "nome": "Sicrano de Tal",
+      "email": "sicrano@email.com",
+      "telefone": "28999996666",
+      "mensalidade": 49.9
+    },
+    {
+      "nome": "Fulano da Silva",
+      "email": "silva@email.com",
+      "telefone": "12345678901",
+      "mensalidade": "25",
+      "id": 5
+    },
+    {
+      "nome": "Alano da Silva",
+      "email": "alano@email.com",
+      "telefone": "98765432101",
+      "mensalidade": "65",
+      "id": 6
+    }
+  ],
+  "instrutores": [
+    {
+      "id": 1,
+      "nome": "Carlão Bombado",
+      "email": "bombado@email.com",
+      "telefone": "28999995555",
+      "salario": "1500"
+    },
+    {
+      "id": 2,
+      "nome": "Zeca Deca",
+      "email": "zeca@email.com",
+      "telefone": "28999994444",
+      "salario": "2500"
+    },
+    {
+      "id": 3,
+      "nome": "Paulo Cintura",
+      "email": "cintura@email.com",
+      "telefone": "28999993333",
+      "salario": "1800"
+    }
+  ],
+  "exercicios": [
+    {
+      "id": 1,
+      "nome": "Supino Reto"
+    },
+    {
+      "id": 2,
+      "nome": "Supino Inclinado"
+    },
+    {
+      "id": 3,
+      "nome": "Puxada Frontal"
+    },
+    {
+      "id": 4,
+      "nome": "Puxada Costas"
+    },
+    {
+      "id": 5,
+      "nome": "Abdominal"
+    },
+    {
+      "id": 6,
+      "nome": "Prancha"
+    },
+    {
+      "id": 7,
+      "nome": "Rosca Direta"
+    },
+    {
+      "id": 8,
+      "nome": "Rosca Martelo"
+    },
+    {
+      "id": 9,
+      "nome": "Leg Press"
+    },
+    {
+      "id": 10,
+      "nome": "Extensora"
+    },
+    {
+      "id": 11,
+      "nome": "Flexora"
+    },
+    {
+      "id": 12,
+      "nome": "Adutora"
+    },
+    {
+      "id": 13,
+      "nome": "Abdutora"
+    },
+    {
+      "id": 14,
+      "nome": "Tríceps Pulley"
+    },
+    {
+      "id": 15,
+      "nome": "Tríceps Corda"
+    },
+    {
+      "id": 16,
+      "nome": "Panturrilha"
+    }
+  ],
+  "execucoes": [
+    {
+      "id": 1,
+      "alunoId": 1,
+      "exercicioId": 1,
+      "instrutorId": 1,
+      "series": 3,
+      "repeticoes": 10,
+      "carga": 5,
+      "data": "2023-05-10"
+    },
+    {
+      "id": 2,
+      "alunoId": 1,
+      "exercicioId": 2,
+      "instrutorId": 1,
+      "series": 3,
+      "repeticoes": 10,
+      "carga": 5,
+      "data": "2023-05-10"
+    },
+    {
+      "id": 3,
+      "alunoId": 1,
+      "exercicioId": 3,
+      "instrutorId": 1,
+      "series": 3,
+      "repeticoes": 10,
+      "carga": 5,
+      "data": "2023-05-10"
+    },
+    {
+      "id": 4,
+      "alunoId": 1,
+      "exercicioId": 5,
+      "instrutorId": 1,
+      "series": 3,
+      "repeticoes": 10,
+      "carga": 5,
+      "data": "2023-05-10"
+    },
+    {
+      "alunoId": "1",
+      "instrutorId": "1",
+      "exercicioId": "1",
+      "series": "3",
+      "repeticoes": "10",
+      "carga": "5",
+      "data": "2023-06-14",
+      "id": 5
+    }
+  ]
+}
