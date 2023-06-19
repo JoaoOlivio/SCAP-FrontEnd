@@ -9,7 +9,7 @@ const Listagem = () => {
 
   const carregarLojas = () => {
     axios
-      .get("https://scap-sistema-promotor.onrender.com/lojas")
+      .get("https://scap-sistema-promotor.onrender.com/lojaws")
       .then((resp) => {
         setLojas(resp.data);
         setLoading(false);
