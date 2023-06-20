@@ -1,18 +1,40 @@
-import { Outlet } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import React, { useState } from 'react';
+import SideBar from '../components/Sidebar';
+import { Outlet } from 'react-router-dom';
 
-const Leiaute = () => {
-    
+const Layout = () => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <>
-            <Header />
-            <div className="container mb-5 pb-5">
-                <Outlet />
+            <div className='d-flex'>
+                <SideBar isOpen={isOpen} handleToggle={handleToggle} />
+                <div
+                    className={`flex-1 w-100 content `}
+                    style={{
+                        transition: 'margin-left 0.3s ease-in-out',
+                        position: 'relative', 
+                        zIndex: '1', 
+                    }}
+                >
+                    <nav className="navbar bg-body-tertiary">
+                        <div className="container-fluid">
+                            <button className="toggle-button" onClick={handleToggle}>
+                                Toggle Sidebar
+                            </button>
+                        </div>
+                    </nav>
+                    <div className='container mt-3'>
+                        <Outlet />
+                    </div>
+                </div>
             </div>
-            <Footer />
         </>
-    )
-}
+    );
+};
 
-export default Leiaute;
+export default Layout;

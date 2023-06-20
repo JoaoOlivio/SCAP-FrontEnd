@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import validator from "../../lib/ValidatorPromotor";
+import validator from "../../lib/ValidatorPerfil";
 import { handleChange, validar } from "../../lib/FormUtils";
-import FormLoja from "../../components/promotores/Form";
+import FormPerfil from "../../components/perfil/Form";
 
 const Cadastro = () => {
 
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({admin: false, equipe: false});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -23,11 +23,11 @@ const Cadastro = () => {
     e.preventDefault();
     validarLocal(() => {      
       axios
-        .post("https://scap-sistema-promotor.onrender.com/promotores", inputs)
+        .post("https://scap-sistema-promotor.onrender.com/perfils", inputs)
         .then((resp) => {
           if (resp.status == 200) {
-            alert("Promotor inserido com sucesso!");
-            navigate("/promotores")
+            alert("Perfil inserido com sucesso!");
+            navigate("/perfils")
           }
         });
       console.log("Enviou dados para a API.");
@@ -41,9 +41,9 @@ const Cadastro = () => {
 
   return (
     <>
-      <h1>Cadastro de Promotor</h1>
+      <h1>Cadastro de Perfil</h1>
       <hr />
-      <FormLoja handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+      <FormPerfil handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
     </>
   )
 

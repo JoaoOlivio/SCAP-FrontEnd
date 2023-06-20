@@ -4,12 +4,12 @@ import estilos from "./Listagem.module.css"
 import axios from "axios";
 
 const Listagem = () => {
-  const [promotores, setPromotores] = useState([]);
+  const [fornecedores, setPromotores] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const carregarPromotores = () => {
+  const carregarFornecedores = () => {
     axios
-      .get("https://scap-sistema-promotor.onrender.com/promotores")
+      .get("https://scap-sistema-promotor.onrender.com/fornecedores")
       .then((resp) => {
         setPromotores(resp.data);
         setLoading(false);
@@ -17,13 +17,13 @@ const Listagem = () => {
   }
 
   useEffect(() => {
-    carregarPromotores();
+    carregarFornecedores();
   }, []);
 
   return (
     <>
       <div className="d-flex justify-content-between align-items-center">
-        <h1>Listagem dos Promotores</h1>
+        <h1>Listagem dos Fornecedores</h1>
         <Link className="btn btn-primary" to="cadastrar">Novo</Link>
       </div>
       <hr />
@@ -38,31 +38,28 @@ const Listagem = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Nome</th>
+              <th>Nome Fantasia</th>
+              <th>Razão Social</th>
               <th>E-mail</th>
               <th>Telefone</th>
-              <th>CPF</th>
-              <th>Sexo</th>
-              <th>Data de Nascimento</th>
-              <th>Ações</th>
+              <th>CNPJ</th>
             </tr>
           </thead>
           <tbody>
             {
-              promotores.map((promotor) =>
-                <tr key={promotor.id}>
-                  <td>{promotor.id}</td>
-                  <td>{promotor.nome}</td>
-                  <td>{promotor.email}</td>
-                  <td>{promotor.telefone}</td>
-                  <td>{promotor.cpf}</td>
-                  <td>{promotor.sexo}</td>
-                  <td>{promotor.nascimento}</td>
+              fornecedores.map((fornecedor) =>
+                <tr key={fornecedor.id}>
+                  <td>{fornecedor.id}</td>
+                  <td>{fornecedor.nomeFantasia}</td>
+                  <td>{fornecedor.razaoSocial}</td>
+                  <td>{fornecedor.email}</td>
+                  <td>{fornecedor.telefone}</td>
+                  <td>{fornecedor.cnpj}</td>
                   <td>
-                    <Link className="btn btn-sm btn-success me-1" to={`/promotores/alterar/${promotor.id}`}>
+                    <Link className="btn btn-sm btn-success me-1" to={`/fornecedores/alterar/${fornecedor.id}`}>
                       <i className="bi bi-pen" title="Alterar"></i>
                     </Link>
-                    <Link className="btn btn-sm btn-danger" to={`/promotores/excluir/${promotor.id}`}>
+                    <Link className="btn btn-sm btn-danger" to={`/fornecedores/excluir/${fornecedor.id}`}>
                       <i className="bi bi-trash" title="Excluir"></i>
                     </Link>
                   </td>

@@ -1,0 +1,29 @@
+.sidebar{
+    transition: width 0.3s ease-in-out;
+    position: 'fixed';
+    top: 0;
+    left:0;
+    background: #fff;
+    border-right: 1px solid #dcdcdc;
+}
+
+.link-menu-sidebar{
+    text-decoration: none;
+    color: currentColor;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;border: 0;
+    font-weight: 500;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+
+.nav-item a.active, .nav-item a:hover{
+   background: #2785ff;
+   color: #fff;
+}
+
+.shifted {
+    padding-left: 60px; /* Adapte o valor do recuo (padding) conforme necessário */
+}

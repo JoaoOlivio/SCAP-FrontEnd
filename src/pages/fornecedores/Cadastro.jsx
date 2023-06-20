@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import validator from "../../lib/ValidatorPromotor";
+import validator from "../../lib/ValidatorFornecedor";
 import { handleChange, validar } from "../../lib/FormUtils";
-import FormLoja from "../../components/promotores/Form";
+import FormLoja from "../../components/fornecedores/Form";
 
 const Cadastro = () => {
 
@@ -23,11 +23,11 @@ const Cadastro = () => {
     e.preventDefault();
     validarLocal(() => {      
       axios
-        .post("https://scap-sistema-promotor.onrender.com/promotores", inputs)
+        .post("https://scap-sistema-promotor.onrender.com/fornecedores", inputs)
         .then((resp) => {
           if (resp.status == 200) {
-            alert("Promotor inserido com sucesso!");
-            navigate("/promotores")
+            alert("Fornecedor inserido com sucesso!");
+            navigate("/fornecedores")
           }
         });
       console.log("Enviou dados para a API.");
@@ -41,7 +41,7 @@ const Cadastro = () => {
 
   return (
     <>
-      <h1>Cadastro de Promotor</h1>
+      <h1>Cadastro de Fornecedor</h1>
       <hr />
       <FormLoja handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
     </>
