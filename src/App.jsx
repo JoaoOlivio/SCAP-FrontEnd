@@ -28,8 +28,19 @@ import CadastroFornecedor from './pages/fornecedores/Cadastro';
 import AlteracaoFornecedor from './pages/fornecedores/Alteracao';
 import ExclusaoFornecedor from './pages/fornecedores/Exclusao';
 
-import CadastroExecucao from './pages/execucoes/Cadastro';
+import ListagemUsuario from './pages/usuarios/Listagem';
+import CadastroUsuario from './pages/usuarios/Cadastro';
+import AlteracaoUsuario from './pages/usuarios/Alteracao';
+import ExclusaoUsuario from './pages/usuarios/Exclusao';
 
+import ListagemProduto from './pages/produtos/Listagem';
+import CadastroProduto from './pages/produtos/Cadastro';
+import AlteracaoProduto from './pages/produtos/Alteracao';
+import ExclusaoProduto from './pages/produtos/Exclusao';
+
+import RelatorioSaida2 from './pages/Relatorios/Saida/Relatorio2';
+
+import CadastroExecucao from './pages/execucoes/Cadastro';
 
 const App = () => {
   const [tema, setTema] = useState("light");
@@ -71,6 +82,24 @@ const App = () => {
                 <Route path="excluir/:id" element={<ExclusaoPerfil />} />
               </Route>
               
+              <Route path="usuarios">
+                <Route index element={<ListagemUsuario />} />
+                <Route path="cadastrar" element={<CadastroUsuario/>} />
+                <Route path="alterar/:id" element={<AlteracaoUsuario />} />
+                <Route path="excluir/:id" element={<ExclusaoUsuario/>} />
+              </Route>
+
+              <Route path="produtos">
+                <Route index element={<ListagemProduto />} />
+                <Route path="cadastrar" element={<CadastroProduto />} />
+                <Route path="alterar/:id" element={<AlteracaoProduto />} />
+                <Route path="excluir/:id" element={<ExclusaoProduto />} />
+              </Route>
+
+              <Route path="relatorios">
+                <Route path="saida2" element={<RelatorioSaida2 />} />
+              </Route>
+
               <Route path="execucoes/cadastrar" element={<CadastroExecucao />} />
               <Route path="*" element={<NotFound />} />
             </Route>

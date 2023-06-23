@@ -10,7 +10,6 @@ const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
             <FormInput type="email" field="email" label="Email" placeholder="contato@gmail.com" error={errors?.email} onChange={handleChange} value={inputs?.email} />
             <FormInput type="text" field="telefone" label="Telefone" placeholder="(99) 99999-9999" error={errors?.telefone} onChange={handleChange} value={inputs?.telefone} mask="(99) 99999-9999" />
             <FormInput type="text" field="sexo" label="Sexo" placeholder="Masculino" error={errors?.sexo} onChange={handleChange} value={inputs?.sexo} />
-            <FormInput type="text" field="razaoSocial" label="Razão Social" placeholder="Razão" error={errors?.razaoSocial} onChange={handleChange} value={inputs?.razaoSocial} />
             <FormInput type="date" field="nascimento" label="Data de nascimento" placeholder="11/11/2000" error={errors?.nascimento} onChange={handleChange} value={inputs?.nascimento} />
 
             <FormButtons cancelTarget="/promotores" />

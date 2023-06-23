@@ -2,8 +2,6 @@
 import FormButtons from "../FormButtons"
 import FormInput from "../FormInput"
 
-
-
 const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
     return (
         <form onSubmit={handleSubmit} noValidate autoComplete="off">

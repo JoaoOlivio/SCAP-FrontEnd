@@ -2,8 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { validar, handleChange } from "../../lib/FormUtils";
-import validator from "../../lib/ValidatorFornecedor";
-import FormFornecedor from "../../components/fornecedores/Form";
+import validator from "../../lib/ValidatorProduto";
+import FormProduto from "../../components/produtos/Form";
 
 const Alteracao = () => {
     const [inputs, setInputs] = useState({});
@@ -12,17 +12,17 @@ const Alteracao = () => {
 
     const id = useParams().id;
     if (!id) {
-        navigate("/fornecedores");
+        navigate("/produtos");
     }
 
     function carregarDados() {
         // setInputs({ ...inputs, id: id });
-        axios.get(`https://scap-sistema-promotor.onrender.com/fornecedores/${id}`)
+        axios.get(`https://scap-sistema-promotor.onrender.com/produtos/${id}`)
             .then((resp) => {
                 if (resp.status === 200) {
                     setInputs(resp.data);
                 } else if (resp.status === 404) {
-                    navigate("/fornecedores");
+                    navigate("/produtos");
                 } else {
                     console.log(resp);
                 }
@@ -48,11 +48,11 @@ const Alteracao = () => {
         e.preventDefault();
         validarLocal(() => {
             axios
-                .put(`https://scap-sistema-promotor.onrender.com/fornecedores/${id}`, inputs)
+                .put(`https://scap-sistema-promotor.onrender.com/produtos/${id}`, inputs)
                 .then((resp) => {
                     if (resp.status == 200) {
-                        alert("Fornecedor alteradoo com sucesso!");
-                        navigate("/fornecedores")
+                        alert("Produto alterado com sucesso!");
+                        navigate("/produtos")
                     }
                 });
         });
@@ -65,9 +65,9 @@ const Alteracao = () => {
 
     return (
         <>
-            <h1>Alteração de Fornecedor</h1>
+            <h1>Alteração de Produto</h1>
             <hr />
-            <FormFornecedor handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+            <FormProduto handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
         </>
     )
 }

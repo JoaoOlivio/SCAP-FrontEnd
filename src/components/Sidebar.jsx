@@ -21,15 +21,68 @@ export default function SideBar({ isOpen, handleToggle }) {
             </div>
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">
-              {itemMenu.map((item, index) => (
-                <li className="nav-item" key={index}>
-                  <NavLink className=' link-menu-sidebar' to={item.path}>
-                  
-                  <i className={`bi ${item.icon} m-2`}></i>
-                    {item.nome}
-                  </NavLink>
-                </li>
-              ))}
+              <li className="nav-item" >
+                <NavLink className=' link-menu-sidebar' to='/'>
+                  <i className={`bi bi-house-fill m-2`}></i>
+                  Dashboard
+                </NavLink>
+              </li>
+              <li className="nav-item" >
+                <NavLink className=' link-menu-sidebar' to='/'>
+                  <i className={`bi bi-house-fill m-2`}></i>
+                  Entrada
+                </NavLink>
+              </li>
+              <li className="nav-item" >
+                <NavLink className=' link-menu-sidebar' to='/'>
+                  <i className={`bi bi-house-fill m-2`}></i>
+                  Saída
+                </NavLink>
+              </li>
+              <li className="nav-item" >
+                <NavLink className=' link-menu-sidebar' to='/'>
+                  <i className={`bi bi-house-fill m-2`}></i>
+                  Avaliação
+                </NavLink>
+              </li>
+
+              <li className="nav-item" >
+                <button class=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#cadastro-collapse" >
+                <i class="bi bi-book-fill">&nbsp;</i> Cadastro <i class="bi bi-caret-down-fill"></i>
+                </button>
+                <div class="collapse show" id="cadastro-collapse">
+                  <ul class="nav nav-pills flex-column mb-auto">
+                    {itemMenu.map((item, index) => (
+                      <li className="nav-item" key={index}>
+                        <NavLink className=' link-menu-sidebar' to={item.path}>
+
+                          <i className={`bi ${item.icon} m-2`}></i>
+                          {item.nome}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+
+              <li className="nav-item" >
+                <button class=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#relatorio-collapse" >
+                <i class="bi bi-book-fill">&nbsp;</i> Relatórios <i class="bi bi-caret-down-fill"></i>
+                </button>
+                <div class="collapse show" id="relatorio-collapse">
+                  <ul class="nav nav-pills flex-column mb-auto">
+                    {itemMenuRelatorio.map((item, index) => (
+                      <li className="nav-item" key={index}>
+                        <NavLink className=' link-menu-sidebar' to={item.path}>
+
+                          <i className={`bi ${item.icon} m-2`}></i>
+                          {item.nome}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
             </ul>
           </>
         )}
@@ -38,14 +91,7 @@ export default function SideBar({ isOpen, handleToggle }) {
   );
 }
 
-
 const itemMenu = [
-  {
-    nome: 'Dashboard',
-    path: '/',
-    icon: 'bi-house-fill',
-
-  },
   {
     nome: 'Lojas',
     path: '/lojas',
@@ -76,5 +122,14 @@ const itemMenu = [
     nome: 'Produtos',
     path: '/produtos',
     icon: 'bi-megaphone-fill',
+  },
+];
+
+const itemMenuRelatorio = [
+  {
+    nome: 'Saída 2',
+    path: 'relatorios/saida2',
+    icon: 'bi-house-fill',
+
   },
 ];

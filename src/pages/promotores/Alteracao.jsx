@@ -2,8 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { validar, handleChange } from "../../lib/FormUtils";
-import validator from "../../lib/ValidatorLoja";
-import FormAluno from "../../components/lojas/Form";
+import validator from "../../lib/ValidatorFornecedor";
+import FormFornecedor from "../../components/fornecedores/Form";
 
 const Alteracao = () => {
     const [inputs, setInputs] = useState({});
@@ -12,17 +12,17 @@ const Alteracao = () => {
 
     const id = useParams().id;
     if (!id) {
-        navigate("/listagem");
+        navigate("/fornecedores");
     }
 
     function carregarDados() {
         // setInputs({ ...inputs, id: id });
-        axios.get(`https://scap-sistema-promotor.onrender.com/lojas/${id}`)
+        axios.get(`https://scap-sistema-promotor.onrender.com/fornecedores/${id}`)
             .then((resp) => {
                 if (resp.status === 200) {
                     setInputs(resp.data);
                 } else if (resp.status === 404) {
-                    navigate("/lojas");
+                    navigate("/fornecedores");
                 } else {
                     console.log(resp);
                 }
@@ -48,11 +48,11 @@ const Alteracao = () => {
         e.preventDefault();
         validarLocal(() => {
             axios
-                .put(`https://scap-sistema-promotor.onrender.com/lojas/${id}`, inputs)
+                .put(`https://scap-sistema-promotor.onrender.com/fornecedores/${id}`, inputs)
                 .then((resp) => {
                     if (resp.status == 200) {
-                        alert("Loja alterada com sucesso!");
-                        navigate("/lojas")
+                        alert("Fornecedor alterado com sucesso!");
+                        navigate("/fornecedores")
                     }
                 });
         });
@@ -65,9 +65,9 @@ const Alteracao = () => {
 
     return (
         <>
-            <h1>Alteração de Loja</h1>
+            <h1>Alteração de Fornecedor</h1>
             <hr />
-            <FormAluno handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+            <FormFornecedor handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
         </>
     )
 }
