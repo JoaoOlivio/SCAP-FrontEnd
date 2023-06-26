@@ -47,11 +47,11 @@ export default function SideBar({ isOpen, handleToggle }) {
               </li>
 
               <li className="nav-item" >
-                <button class=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#cadastro-collapse" >
-                <i class="bi bi-book-fill">&nbsp;</i> Cadastro <i class="bi bi-caret-down-fill"></i>
+                <button className=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#cadastro-collapse" >
+                <i className="bi bi-book-fill">&nbsp;</i> Cadastro <i className="bi bi-caret-down-fill"></i>
                 </button>
-                <div class="collapse show" id="cadastro-collapse">
-                  <ul class="nav nav-pills flex-column mb-auto">
+                <div className="collapse show" id="cadastro-collapse">
+                  <ul className="nav nav-pills flex-column mb-auto">
                     {itemMenu.map((item, index) => (
                       <li className="nav-item" key={index}>
                         <NavLink className=' link-menu-sidebar' to={item.path}>
@@ -66,11 +66,11 @@ export default function SideBar({ isOpen, handleToggle }) {
               </li>
 
               <li className="nav-item" >
-                <button class=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#relatorio-collapse" >
-                <i class="bi bi-book-fill">&nbsp;</i> Relatórios <i class="bi bi-caret-down-fill"></i>
+                <button className=" link-menu-sidebar btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#relatorio-collapse" >
+                <i className="bi bi-book-fill">&nbsp;</i> Relatórios <i className="bi bi-caret-down-fill"></i>
                 </button>
-                <div class="collapse show" id="relatorio-collapse">
-                  <ul class="nav nav-pills flex-column mb-auto">
+                <div className="collapse show" id="relatorio-collapse">
+                  <ul className="nav nav-pills flex-column mb-auto">
                     {itemMenuRelatorio.map((item, index) => (
                       <li className="nav-item" key={index}>
                         <NavLink className=' link-menu-sidebar' to={item.path}>
@@ -114,7 +114,7 @@ const itemMenu = [
     icon: 'bi-megaphone-fill',
   },
   {
-    nome: 'Perils',
+    nome: 'Perfis',
     path: '/perfils',
     icon: 'bi-megaphone-fill',
   },
@@ -127,9 +127,33 @@ const itemMenu = [
 
 const itemMenuRelatorio = [
   {
-    nome: 'Saída 2',
-    path: 'relatorios/saida2',
+    nome: 'Saidas de promotores',
+    path: 'relatorios/saida1',
     icon: 'bi-house-fill',
-
+  },
+  {
+    nome: 'Horas trabalhadas',
+    path: 'relatorios/horasTrabalho1',
+    icon: 'bi-briefcase-fill',
+  },
+  {
+    nome: 'Entradas de promotores',
+    path: 'relatorios/entrada1',
+    icon: 'bi-person-fill-check',
+  },
+  {
+    nome: 'Entradas por promotor',
+    path: 'relatorios/entrada2',
+    icon: 'bi-person-fill-check',
+  },
+  {
+    nome: 'Media de avaliações',
+    path: 'relatorios/avaliacao1',
+    icon: 'bi-bar-chart-fill',
+  },
+  {
+    nome: 'Rank de avaliação',
+    path: 'relatorios/avaliacao2',
+    icon: 'bi-bar-chart-fill',
   },
 ];

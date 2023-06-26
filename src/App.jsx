@@ -38,7 +38,15 @@ import CadastroProduto from './pages/produtos/Cadastro';
 import AlteracaoProduto from './pages/produtos/Alteracao';
 import ExclusaoProduto from './pages/produtos/Exclusao';
 
-import RelatorioSaida2 from './pages/Relatorios/Saida/Relatorio2';
+import RelatorioSaida1 from './pages/Relatorios/Saida/Relatorio1';
+import RelatorioHorasTrabalho1 from './pages/Relatorios/HorasTrabalho/Relatorio1';
+import RelatorioEntrada1 from './pages/Relatorios/Entrada/Relatorio1';
+import RelatorioEntrada2 from './pages/Relatorios/Entrada/Relatorio2';
+import RelatorioAvaliacao1 from './pages/Relatorios/Avaliacao/Relatorio1';
+import RelatorioAvaliacao2 from './pages/Relatorios/Avaliacao/Relatorio2';
+
+
+
 
 import CadastroExecucao from './pages/execucoes/Cadastro';
 
@@ -97,7 +105,12 @@ const App = () => {
               </Route>
 
               <Route path="relatorios">
-                <Route path="saida2" element={<RelatorioSaida2 />} />
+                <Route path="saida1" element={<RelatorioSaida1 />} />
+                <Route path="horasTrabalho1" element={<RelatorioHorasTrabalho1/>} />
+                <Route path='entrada1' element={<RelatorioEntrada1/>} />
+                <Route path='entrada2' element={<RelatorioEntrada2/>} />
+                <Route path='avaliacao1' element={<RelatorioAvaliacao1/>} />
+                <Route path='avaliacao2' element={<RelatorioAvaliacao2/>} />
               </Route>
 
               <Route path="execucoes/cadastrar" element={<CadastroExecucao />} />

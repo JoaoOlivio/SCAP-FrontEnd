@@ -7,6 +7,27 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
+    const [promotores, setPromotores] = useState([]);
+
+    const carregarPromotores = () => {
+    axios
+        .get("https://scap-sistema-promotor.onrender.com/promotores")
+        .then((resp) => {
+        const dados = resp.data.map((obj) => {
+            return {
+                value: obj.id,
+                label: obj.nome
+            };
+        });
+        setPromotores(dados);
+        console.log(resp.data);
+        setLoading(false);
+        });
+    }
+
+    useEffect(() => {
+        carregarPromotores();
+    }, []);
 
     return (
         <form className="col-md-8" onSubmit={handleSubmit(inputs?.dataInicial)} noValidate autoComplete="off">
@@ -18,6 +39,9 @@ const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
                         </div>
                         <div className="col-md-6">
                             <FormInput type="date" field="dataFinal" label="Data de Final" placeholder="11/11/2000" error={errors?.dataFinal} onChange={handleChange} value={inputs?.dataFinal} />
+                        </div>
+                        <div className="col-md-6">
+                            <FormSelect field="promotorId" label="Promotor" placeholder="Selecione o promotor..." error={errors?.promotorId} onChange={handleChange} value={inputs?.promotorId} options={promotores} />
                         </div>
                     </div>
                 </div>

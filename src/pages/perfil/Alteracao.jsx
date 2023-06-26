@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { validar, handleChange } from "../../lib/FormUtils";
 import validator from "../../lib/ValidatorPerfil";
-import FormAluno from "../../components/perfil/Form";
+import FormPerfil from "../../components/perfil/Form";
 
 const Alteracao = () => {
     const [inputs, setInputs] = useState({});
@@ -67,7 +67,7 @@ const Alteracao = () => {
         <>
             <h1>Alteração de Perfil</h1>
             <hr />
-            <FormAluno handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+            <FormPerfil handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
         </>
     )
 }

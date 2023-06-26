@@ -4,14 +4,14 @@ import estilos from "./Listagem.module.css"
 import axios from "axios";
 
 const Listagem = () => {
-  const [promotores, setPromotores] = useState([]);
+  const [perfis, setPerfis] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const carregarPromotores = () => {
     axios
       .get("https://scap-sistema-promotor.onrender.com/perfils")
       .then((resp) => {
-        setPromotores(resp.data);
+        setPerfis(resp.data);
         setLoading(false);
       });
   }
@@ -47,18 +47,18 @@ const Listagem = () => {
           </thead>
           <tbody>
             {
-              promotores.map((promotor) =>
-                <tr key={promotor.id}>
-                  <td>{promotor.id}</td>
-                  <td>{promotor.nome}</td>
-                  <td>{promotor.equipe}</td>
-                  <td>{promotor.admin}</td>
-                  <td>{promotor.descricao}</td>
+              perfis.map((perfil) =>
+                <tr key={perfil.id}>
+                  <td>{perfil.id}</td>
+                  <td>{perfil.nome}</td>
+                  <td>{perfil.equipe ? "sim" : "nao"}</td>
+                  <td>{perfil.admin ? "sim" : "nao"}</td>
+                  <td>{perfil.descricao}</td>
                   <td>
-                    <Link className="btn btn-sm btn-success me-1" to={`/perfils/alterar/${promotor.id}`}>
+                    <Link className="btn btn-sm btn-success me-1" to={`/perfils/alterar/${perfil.id}`}>
                       <i className="bi bi-pen" title="Alterar"></i>
                     </Link>
-                    <Link className="btn btn-sm btn-danger" to={`/perfils/excluir/${promotor.id}`}>
+                    <Link className="btn btn-sm btn-danger" to={`/perfils/excluir/${perfil.id}`}>
                       <i className="bi bi-trash" title="Excluir"></i>
                     </Link>
                   </td>

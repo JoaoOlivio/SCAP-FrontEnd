@@ -5,17 +5,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Exclusao = () => {
-    const [loja, setLoja] = useState({});
+    const [promotor, setPromotor] = useState({});
     const id = useParams().id;
 
     const navigate = useNavigate();
 
     function carregarDados() {
         // setInputs({ ...inputs, id: id });
-        axios.get(`https://scap-sistema-promotor.onrender.com/lojas/${id}`)
+        axios.get(`https://scap-sistema-promotor.onrender.com/promotores/${id}`)
             .then((resp) => {
                 if (resp.status === 200) {
-                    setLoja(resp.data);
+                    setPromotor(resp.data);
                 } else if (resp.status === 404) {
                     navigate("/lojas");
                 } else {
@@ -32,11 +32,11 @@ const Exclusao = () => {
     }, [id]);
 
     function handleDelete() {
-        axios.delete(`https://scap-sistema-promotor.onrender.com/lojas/${id}`)
+        axios.delete(`https://scap-sistema-promotor.onrender.com/promotores/${id}`)
             .then((resp) => {
                 if (resp.status === 200) {
-                    alert("Loja excluída com sucesso!");
-                    navigate("/lojas")
+                    alert("Promotor excluído com sucesso!");
+                    navigate("/promotores")
                 } else {
                     console.log(resp);
                 }
@@ -48,10 +48,10 @@ const Exclusao = () => {
 
     return (
         <>
-            <h1>Exclusão de Loja</h1>
+            <h1>Exclusão de Promotor</h1>
             <hr />
-            <p className="lead">Deseja realmente excluir a Loja {loja.nome}?</p>
-            <FormButtons cancelTarget="/lojas" negativeTitle="Não" positiveTitle="Sim" positiveAction={handleDelete} buttonType="button" />
+            <p className="lead">Deseja realmente excluir a Promotor {promotor.nome}?</p>
+            <FormButtons cancelTarget="/promotores" negativeTitle="Não" positiveTitle="Sim" positiveAction={handleDelete} buttonType="button" />
         </>
     )
 }

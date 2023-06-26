@@ -6,6 +6,11 @@ const validator = yup.object().shape({
         .required("Nome é obrigatório.")
         .min(3, "Nome deve ter pelo menos 3 caracteres.")
         .max(50, "Nome deve ter no máximo 50 caracteres."),
+    razaoSocial: yup
+        .string()
+        .required("Razão social é obrigatório")
+        .min(3, "Razão social deve ter pelo menos 3 caracteres.")
+        .max(50, "Razão social deve ter no máximo 50 caracteres."),
     email: yup.string().email("E-mail inválido.").required("E-mail é obrigatório."),
     telefone: yup.string().required("Telefone é obrigatório."),
     sexo: yup.string().required("Sexo é obrigatório."),
