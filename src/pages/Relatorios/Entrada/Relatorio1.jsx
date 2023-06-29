@@ -5,6 +5,7 @@ import validator from "../../../lib/ValidatorRelatorio";
 import { handleChange, validar } from "../../../lib/FormUtils";
 import axios from "axios";
 import FormRelatorio from "../../../components/relatorio/Form";
+import BotaoVoltar from "../../../components/BotaoVoltar";
 
 const Listagem = () => {
     const [relatorios, setRelatorios] = useState([]);
@@ -21,12 +22,15 @@ const Listagem = () => {
         handleChange(e, setInputs, inputs);
     }
 
-    function handleSubmit( dataInicial, dataFinal) {
+    function handleSubmit(e) {
+        e.preventDefault(); // Evita o envio automático do formulário
+
+        const { dataInicial, dataFinal } = inputs;
+
         axios
             .get(`https://scap-sistema-promotor.onrender.com/entradas/relatorio1/${dataInicial}/${dataFinal}`)
             .then((resp) => {
                 setRelatorios(resp.data);
-                console.log('asds', dataInicial)
                 setLoading(false);
             });
     }
@@ -38,11 +42,17 @@ const Listagem = () => {
 
     return (
         <>
-            <div className="d-flex align-items-center">
-                <h1 className="col-md-4" >Entrada - Relatório 2</h1>
-                <FormRelatorio  handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+            <div className="d-flex flex-column align-items-center justify-content-between">
+                <div className="w-100 d-flex justify-content-between">
+                    <h1>Entrada - Relatório 1</h1>
+                    <BotaoVoltar />
+                </div>
+
+                <div className="w-100">
+                    <FormRelatorio handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+                </div>
             </div>
-            
+
             <hr />
             {loading &&
                 (<div className="text-center">
@@ -62,7 +72,7 @@ const Listagem = () => {
                         {
                             relatorios.map((relatorio, index) =>
                                 <tr key={index}>
-                                    <td>{relatorio.razao_social}</td>
+                                    <td>{relatorio.nome}</td>
                                     <td>{relatorio.visitas}</td>
                                 </tr>
                             )

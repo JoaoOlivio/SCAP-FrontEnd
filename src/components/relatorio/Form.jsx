@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
 
     return (
-        <form className="col-md-8" onSubmit={handleSubmit(inputs?.dataInicial)} noValidate autoComplete="off">
+        <form className="col-md-12" onSubmit={handleSubmit} noValidate autoComplete="off">
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <div className="row">
                         <div className="col-md-6">
                             <FormInput type="date" field="dataInicial" label="Data de Inicial" placeholder="11/11/2000" error={errors?.dataInicial} onChange={handleChange} value={inputs?.dataInicial} />
@@ -21,7 +21,7 @@ const Form = ({ handleSubmit, handleChange, errors, inputs }) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 ">
+                <div className="col-md-2">
                     <FormButtons cancelTarget="/" />
 
                 </div>

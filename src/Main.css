@@ -27,3 +27,10 @@
 .shifted {
     padding-left: 60px; /* Adapte o valor do recuo (padding) conforme necessário */
 }
+
+.botao-voltar{
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0px!important;
+}

@@ -17,14 +17,14 @@ const Layout = () => {
                     className={`flex-1 w-100 content `}
                     style={{
                         transition: 'margin-left 0.3s ease-in-out',
-                        position: 'relative', 
-                        zIndex: '1', 
+                        position: 'relative',
+                        zIndex: '1',
                     }}
                 >
                     <nav className="navbar bg-body-tertiary">
                         <div className="container-fluid">
-                            <button className="toggle-button" onClick={handleToggle}>
-                                Toggle Sidebar
+                            <button className="toggle-button btn" onClick={handleToggle}>
+                                <i className="fs-5 bi bi-filter-circle-fill"></i>
                             </button>
                         </div>
                     </nav>

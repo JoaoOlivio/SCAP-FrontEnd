@@ -49,6 +49,7 @@ import RelatorioAvaliacao2 from './pages/Relatorios/Avaliacao/Relatorio2';
 
 
 import CadastroExecucao from './pages/execucoes/Cadastro';
+import Relatorios from './pages/Relatorios';
 
 const App = () => {
   const [tema, setTema] = useState("light");
@@ -105,6 +106,7 @@ const App = () => {
               </Route>
 
               <Route path="relatorios">
+                <Route index element={<Relatorios />} />
                 <Route path="saida1" element={<RelatorioSaida1 />} />
                 <Route path="horasTrabalho1" element={<RelatorioHorasTrabalho1/>} />
                 <Route path='entrada1' element={<RelatorioEntrada1/>} />

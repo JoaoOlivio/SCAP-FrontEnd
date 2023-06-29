@@ -5,6 +5,7 @@ import validator from "../../../lib/ValidatorRelatorio";
 import { handleChange, validar } from "../../../lib/FormUtils";
 import axios from "axios";
 import FormRelatorio3 from "../../../components/relatorio/Form3";
+import BotaoVoltar from "../../../components/BotaoVoltar";
 
 const Listagem = () => {
     const [relatorios, setRelatorios] = useState([]);
@@ -21,12 +22,15 @@ const Listagem = () => {
         handleChange(e, setInputs, inputs);
     }
 
-    function handleSubmit( dataInicial, dataFinal) {
+    function handleSubmit(e) {
+        e.preventDefault(); // Evita o envio automático do formulário
+
+        const { promotorId } = inputs;
+
         axios
-            .get(`https://scap-sistema-promotor.onrender.com/avaliacao/relatorio2/${dataInicial}/${dataFinal}`)
+            .get(`https://scap-sistema-promotor.onrender.com/avaliacoes/relatorio2/${promotorId}`)
             .then((resp) => {
                 setRelatorios(resp.data);
-                console.log('asds', dataInicial)
                 setLoading(false);
             });
     }
@@ -38,11 +42,17 @@ const Listagem = () => {
 
     return (
         <>
-            <div className="d-flex align-items-center">
-                <h1 className="col-md-4" >Entrada - Relatório 2</h1>
-                <FormRelatorio3  handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+            <div className="d-flex flex-column align-items-center justify-content-between">
+                <div className="w-100 d-flex justify-content-between">
+                    <h1>Avaliação - Relatório 2</h1>
+                    <BotaoVoltar />
+                </div>
+
+                <div className="w-100">
+                    <FormRelatorio3 handleSubmit={handleSubmit} handleChange={handleChangeLocal} inputs={inputs} errors={errors} />
+                </div>
             </div>
-            
+
             <hr />
             {loading &&
                 (<div className="text-center">
@@ -54,16 +64,16 @@ const Listagem = () => {
                 <table className={`table table-striped ${estilos.tabela}`}>
                     <thead>
                         <tr>
-                            <th>Promotor</th>
-                            <th>Visitas</th>
+                            <th>Destaques</th>
+                            <th>Quantidade</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             relatorios.map((relatorio, index) =>
                                 <tr key={index}>
-                                    <td>{relatorio.razao_social}</td>
-                                    <td>{relatorio.visitas}</td>
+                                    <td>{relatorio.destaques}</td>
+                                    <td>{relatorio.quantidade}</td>
                                 </tr>
                             )
                         }
